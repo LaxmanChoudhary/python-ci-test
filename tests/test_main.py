@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
     self.assertEqual(just_some_addition(3, 3), 6)  # add assertion here
 
   def test_main_raises_exception(self):
-    with self.assertRaises(Exception):
+    with self.assertRaises(TypeError):
       just_some_addition(1, '2')
 
 if __name__ == '__main__':
