@@ -11,13 +11,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -31,3 +29,18 @@ jobs:
     - name: Test with unittest
       run: |
         python -m unittest -v
+
+
+  update-headers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+#        run: pip install -r requirements.txt
+      - name: Run IP header script
+#        run: python action.py --config ip_header_config.yml
+        run: python action.py
